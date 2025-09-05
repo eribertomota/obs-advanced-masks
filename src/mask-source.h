@@ -1,6 +1,7 @@
 #pragma once
 
 #include <obs-module.h>
+#include <util/dstr.h>
 #include <graphics/image-file.h>
 #include "base-filter.h"
 #include "color-adjustments.h"
@@ -75,6 +76,7 @@ struct mask_source_data {
 	bool loading_effect;
 	uint32_t source_mask_filter_type;
 	obs_weak_source_t *mask_source_source;
+	struct dstr mask_source_name;
 	struct vec4 channel_multipliers;
 	float multiplier;
 	bool source_invert;
@@ -139,8 +141,7 @@ extern void render_image_mask(mask_source_data_t *data,
 			      base_filter_data_t *base,
 			      color_adjustments_data_t *color_adj);
 static void set_render_params(mask_source_data_t *data,
-			      color_adjustments_data_t *color_adj,
-			      gs_texture_t *texture);
+			      color_adjustments_data_t *color_adj);
 
 static bool setting_mask_source_scale_by_modified(void *data,
 						  obs_properties_t *props,

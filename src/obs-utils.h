@@ -9,6 +9,7 @@
 #include <stdio.h>
 
 extern gs_texrender_t *create_or_reset_texrender(gs_texrender_t *render);
+gs_texrender_t* create_or_reset_texrender_high(gs_texrender_t* render);
 extern void set_blending_parameters();
 extern void label_indent(char *label, const char *label_text);
 extern void set_render_parameters();
@@ -19,3 +20,5 @@ extern char *load_shader_from_file(const char *file_name);
 extern void setting_visibility(const char *prop_name, bool visible,
 			       obs_properties_t *props);
 extern void texrender_set_texture(gs_texture_t *source, gs_texrender_t *dest);
+extern float (*move_get_transition_filter)(obs_source_t *filter_from,
+					   obs_source_t **filter_to);
